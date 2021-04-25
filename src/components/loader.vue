@@ -10,35 +10,28 @@ export default {
 </script>
 
 <style scoped>
-  .loader {
+.loader {
   display: inline-block;
-  position: relative;
   width: 80px;
   height: 80px;
 }
 .loader:after {
   content: " ";
   display: block;
-  border-radius: 50%;
-  width: 0;
-  height: 0;
+  width: 64px;
+  height: 64px;
   margin: 8px;
-  box-sizing: border-box;
-  border: 32px solid #fff;
+  border-radius: 50%;
+  border: 6px solid #fff;
   border-color: #fff transparent #fff transparent;
-  animation: loaderurglass 1.2s infinite;
+  animation: loader 1.2s linear infinite;
 }
 @keyframes loader {
   0% {
-    transform: rotate(0);
-    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  }
-  /* 50% {
-    transform: rotate(900deg);
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: rotate(0deg);
   }
   100% {
-    transform: rotate(1800deg);
-  } */
+    transform: rotate(360deg);
+  }
 }
 </style>

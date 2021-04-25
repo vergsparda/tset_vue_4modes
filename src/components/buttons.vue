@@ -1,29 +1,54 @@
 <template>
   <div class="btn">
-    <button class="btn-red">1</button>
-    <button class="btn-green">2</button>
-    <button class="btn-blue">3</button>
-    <button class="btn-yellow">4</button>
+    <button v-for="(color, index) in colors" :class="color" :key="index"
+            @click="printBack(color)">
+    </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  props: {
+    colors: {
+      type: Array,
+      require: false,
+    }
+  },
 
+  data() {
+    return {
+      defaultColors: [],
+    };
+  },
+
+  computed: {
+    trueColors() {
+      return this.defaultColors;
+    }
+  },
+  methods: {
+    printBack(color){
+      const html = document.querySelector("html");
+      setTimeout(() => {
+        if (html.style.backgroundColor === color) {
+          html.style.backgroundColor = "#fff";
+        } else {
+          html.style.backgroundColor = color
+        }
+      setTimeout(() => {
+
+      }, )
+      }, 1000);
+
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+        this.defaultColors = ['red', 'green', 'blue']
+    }, 1000)
+  }
 }
-  // const btnRed = document.querySelector('.btn-red');
-  // // const btnGreen = document.querySelector('.btn-green');
-  // // const btnBlue = document.querySelector('.btn-blue');
-  // // const btnYellow = document.querySelector('.btn-yellow');
-  // const html = document.querySelector("html");
 
-  // html.addEventListener('click', (e) => {
-  //   if (e === btnRed) {
-  //   e.preventDefault();
-  //   html.classList.toogle("btn-red");
-  //   }
-  // })
 
 </script>
 
@@ -34,18 +59,18 @@ export default {
   height: 30px;
 }
 
-.btn-red {
+.red {
   background-color: red;
 }
 
-.btn-green {
+.green {
   background-color: green;
 }
-.btn-blue {
+.blue {
   background-color: blue;
 }
 
-.btn-yellow {
+.yellow {
   background-color: yellow;
 }
 </style>

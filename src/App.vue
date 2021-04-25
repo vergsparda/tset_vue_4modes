@@ -1,17 +1,29 @@
 <template>
   <div id="app">
     <h1 class="tittle">modes</h1>
-    <buttons/>
+    <buttons :colors="colors">
+
+    </buttons>
     <loader/>
   </div>
 </template>
 
 <script>
-import buttons from "@/components/buttons";
-import loader from "@comonents/loader";
+import buttons from "./components/buttons";
+import loader from "./components/loader";
 
 export default {
   name: 'App',
+  data() {
+    return {
+      colors: [
+          'red',
+          'blue',
+          'green',
+          'yellow',
+      ]
+    };
+  },
   components: {
     buttons, loader
   }
